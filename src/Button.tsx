@@ -1,5 +1,7 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 
+import './tailwind.css';
+
 export interface Props extends HTMLAttributes<HTMLButtonElement> {
   /** Button text here */
   children: ReactNode;
@@ -12,18 +14,10 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
 export const Button = ({ children, variant = 'primary', ...props }: Props) => {
   return (
     <button
+      className={`${
+        variant === 'primary' ? 'bg-yellow-300' : 'bg-gray-300'
+      } text-white px-4 py-2  rounded-lg`}
       {...props}
-      style={{
-        backgroundColor: variant === 'primary' ? '#ffc952' : '#82868b',
-        color: '#4b4b4b',
-        paddingTop: 10,
-        paddingLeft: 22,
-        paddingRight: 22,
-        paddingBottom: 10,
-        border: 0,
-        borderRadius: 5,
-        cursor: 'pointer',
-      }}
     >
       {children}
     </button>
