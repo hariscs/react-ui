@@ -47,7 +47,7 @@ export const Button: FC<ButtonProps> = ({
 }: ButtonProps) => {
   return (
     <button
-      className="px-6 py-2.5 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl text-dark text-sm bg-success"
+      className="px-6 py-2.5 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl text-dark text-sm bg-info"
       {...props}
     >
       {children}
