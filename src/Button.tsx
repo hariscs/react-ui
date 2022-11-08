@@ -1,23 +1,50 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import React, { FC, HTMLAttributes, ReactNode } from 'react';
 
 import styled from 'styled-components';
 
 import './tailwind.css';
 
-const ButtonStyles = styled.button.attrs(({ variant }: { variant: Props }) => ({
-  className:
-    'px-8 py-2 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl bg-gradient-to-r from-red-300 to-blue-300 hover:from-pink-400 hover:to-indigo-400',
-}))<{ variant: Props }>``;
-export interface Props extends HTMLAttributes<HTMLButtonElement> {
+const ButtonStyles = styled.button.attrs(
+  ({ variant }: { variant: ButtonVariants }) => ({
+    className: `px-6 py-2.5 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl text-dark text-sm`,
+  })
+)<{ variant: ButtonVariants }>`
+  background: ${({ variant }) =>
+    variant === 'secondary'
+      ? '#82868B'
+      : variant === 'success'
+      ? '#28C76F'
+      : variant === 'warning'
+      ? '#EB7E17'
+      : variant === 'danger'
+      ? '#EA5455'
+      : variant === 'info'
+      ? '#00CFE8'
+      : '#FFC952'};
+`;
+
+type ButtonVariants =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info';
+
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   /** Button text here */
   children: ReactNode;
 
-  /** there are two types of buttons */
-  variant?: 'default' | 'warning';
+  /** there are 6 types of buttons */
+  variant?: ButtonVariants;
 }
 
 /** Main button component */
-export const Button = ({ children, variant, ...props }: Props) => {
+export const Button: FC<ButtonProps> = ({
+  children,
+  variant,
+  ...props
+}: ButtonProps) => {
   return (
     <ButtonStyles {...props} variant={variant}>
       {children}

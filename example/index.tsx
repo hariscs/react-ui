@@ -6,7 +6,7 @@ import { Button } from '../.';
 const App = () => {
   return (
     <div>
-      <Button variant="primary" onClick={() => console.log('clicked')}>
+      <Button variant="warning" onClick={() => console.log('clicked')}>
         Click here
       </Button>
     </div>
