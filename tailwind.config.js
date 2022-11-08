@@ -15,4 +15,7 @@ module.exports = {
     },
   },
   plugins: [],
+  purge: {
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './src/components/**/*.styled.tsx'],
+  },
 };

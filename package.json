@@ -19,7 +19,8 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -36,16 +37,18 @@
     "trailingComma": "es5"
   },
   "name": "react-ui",
-  "author": "Haris Shah",
+  "author": {
+    "name": "Haris Shah"
+  },
   "module": "dist/react-ui.esm.js",
   "size-limit": [
     {
       "path": "dist/react-ui.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "200 KB"
     },
     {
       "path": "dist/react-ui.esm.js",
-      "limit": "10 KB"
+      "limit": "200 KB"
     }
   ],
   "devDependencies": {
@@ -66,6 +69,7 @@
     "@types/styled-components": "^5.1.26",
     "autoprefixer": "^9",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.11.4",
     "classnames": "^2.3.2",
     "husky": "^8.0.1",
     "postcss": "^8.4.18",
@@ -80,5 +84,7 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "react-ui@0.1.0"
 }
