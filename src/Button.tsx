@@ -1,27 +1,26 @@
 import React, { FC, HTMLAttributes, ReactNode } from 'react';
 
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 import './tailwind.css';
 
-// const ButtonStyles = styled.button.attrs(
-//   ({ variant }: { variant: ButtonVariants }) => ({
-//     className: `px-6 py-2.5 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl text-dark text-sm`,
-//   })
-// )<{ variant: ButtonVariants }>`
-//   background: ${({ variant }) =>
-//     variant === 'secondary'
-//       ? '#82868B'
-//       : variant === 'success'
-//       ? '#28C76F'
-//       : variant === 'warning'
-//       ? '#EB7E17'
-//       : variant === 'danger'
-//       ? '#EA5455'
-//       : variant === 'info'
-//       ? '#00CFE8'
-//       : '#FFC952'};
-// `;
+const ButtonStyles = styled.button.attrs(
+  ({ variant }: { variant: ButtonVariants }) => ({
+    className: `px-6 py-2.5 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl text-dark text-sm ${
+      variant === 'secondary'
+        ? 'bg-secondary'
+        : variant === 'success'
+        ? 'bg-success'
+        : variant === 'warning'
+        ? 'bg-warning'
+        : variant === 'danger'
+        ? 'bg-danger'
+        : variant === 'info'
+        ? 'bg-info'
+        : 'bg-primary'
+    }`,
+  })
+)``;
 
 type ButtonVariants =
   | 'primary'
@@ -46,14 +45,8 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button
-      className="px-6 py-2.5 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl text-dark text-sm bg-info"
-      {...props}
-    >
+    <ButtonStyles {...props} variant={variant}>
       {children}
-    </button>
-    // <ButtonStyles {...props} variant={variant}>
-    //   {children}
-    // </ButtonStyles>
+    </ButtonStyles>
   );
 };
