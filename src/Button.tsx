@@ -38,7 +38,7 @@ export const Button = ({
         : variant === 'info'
         ? 'bg-info'
         : 'bg-primary'
-    } px-6 py-2.5 font-semibold transition duration-500 ease-in-out transform shadow-xl text-sm text-white rounded-lg`}
+    } px-5 py-2.5 font-semibold transition duration-500 ease-in-out transform shadow-xl text-sm text-white rounded-lg`}
   >
     {children}
   </button>
